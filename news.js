@@ -41,7 +41,7 @@ const handleModal = async(newsId) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/news/${newsId}`);
     const data = await response.json();
     const modalContainer = document.getElementById('modal-container');
-    const newData =data.data;
+    const newData = data.data;
     newData.forEach(news => {
         const divElement = document.createElement('div');
         divElement.innerHTML = `
@@ -50,8 +50,9 @@ const handleModal = async(newsId) => {
             <form method="dialog">
                 <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>
-            <h3 class="font-bold text-lg">Hello!</h3>
-            <p class="py-4">Press ESC key or click on ✕ button to close</p>
+            <figure><img src="${news.image_url}" alt="Image is not done" /></figure>
+            <h3 class="font-bold text-lg">${news.title}</h3>
+            <p class="py-4">${news.details}</p>
         </div>
     </dialog>
         `;
