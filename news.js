@@ -41,6 +41,7 @@ const handleModal = async(newsId) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/news/${newsId}`);
     const data = await response.json();
     const modalContainer = document.getElementById('modal-container');
+    modalContainer.innerHTML="";
     const newData = data.data;
     newData.forEach(news => {
         const divElement = document.createElement('div');
